@@ -47,7 +47,11 @@ export default function App() {
       <Section title="Please leave feedback:">
         <FeedbackOptions
           options={keys}
-          onLeaveFeedback={() => dispatch({ type: 'good', payload: 1 })}
+          onLeaveFeedback={(e) => {
+            console.log(e);
+            dispatch({ type: e.currentTarget.attributes['option'].value, payload: 1 })
+          }
+          }
         />
       </Section>
 
