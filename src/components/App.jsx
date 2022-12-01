@@ -38,7 +38,7 @@ export default function App() {
   );
 
   const total = state.good + state.neutral + state.bad;
-  const percentage = Math.ceil(state.good * 100) / total;
+  const percentage = Math.round(Math.ceil(state.good * 100) / total);
 
   const keys = Object.keys(state);
 
@@ -48,8 +48,8 @@ export default function App() {
         <FeedbackOptions
           options={keys}
           onLeaveFeedback={(e) => {
-            console.log(e);
-            dispatch({ type: e.currentTarget.attributes['option'].value, payload: 1 })
+            console.log(e)
+            dispatch({ type: e.target.name, payload: 1 })
           }
           }
         />
